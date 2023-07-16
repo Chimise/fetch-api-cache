@@ -68,7 +68,6 @@ export default function cacheFetch(fetchApi, globalOptions = {}) {
     // Only cache request with method GET or HEAD
     if (method === "GET" || method === "HEAD") {
       if (hasKey) {
-        console.log("Getting from cache");
         return cache.get(cacheKey);
       }
 
@@ -83,7 +82,6 @@ export default function cacheFetch(fetchApi, globalOptions = {}) {
         .catch(() => {
           cache.del(cacheKey);
         });
-
       return promise;
     }
 
